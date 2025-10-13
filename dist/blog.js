@@ -25,7 +25,12 @@ function appendBlogs() {
         var styleDiv = document.createElement("div");
         styleDiv.classList.add("square-circle");
         var title = document.createElement("h3");
-        title.textContent = blog.title;
+        var link = document.createElement("a");
+        link.textContent = blog.title;
+        var slug = blog.slug;
+        link.href = "blogs/" + slug + ".html";
+        link.style.color = "black";
+        title.appendChild(link);
         var description = document.createElement("p");
         description.textContent = blog.description;
         var figure = document.createElement("figure");
