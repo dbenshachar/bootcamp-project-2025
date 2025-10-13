@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Projects</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="topnav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="resume.html">Resume</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card header-card">
+        <h1>Project Portfolio</h1>
+      </section>
+
+      <div class="square-circle">
+        <section class="card paragraph-card">
+          <p>
+            Check out my projects
+            <a href="https://github.com/users/dbenshachar" target="_blank">
+              on my GitHub </a
+            >.
+          </p>
+        </section>
+      </div>
+
+      <div class="square-circle">
+        <section class="card project-card">
+          <div style="display: flex; align-items: center">
+            <h3>FRC GPT</h3>
+          </div>
+          <ul>
+            <li>
+              Scraped over 8k GitHub repositories for over 1M lines of code to
+              create a dataset for a large language model.
+            </li>
+            <li>
+              Trained an LLM (Llama 3.2, 1B parameters) in PyTorch to
+              autocomplete and assist with robotics-specific coding.
+            </li>
+            <li>
+              Deployed the model in VSCode with an integrated MCP server using
+              Ollama to run locally.
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>© 2023 David Benshachar | All Rights Reserved</footer>
+  </body>
+</html>

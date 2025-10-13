@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Resume</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      .viewer {
+        width: 100%;
+        height: calc(100vh - 60px);
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="topnav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="resume.html">Resume</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <iframe
+        class="viewer"
+        src="resume.pdf#view=FitH"
+        allow="fullscreen"
+        title="David's Resume"
+      ></iframe>
+      <noscript>
+        <p><a href="resume.pdf">View Resume (PDF)</a></p>
+      </noscript>
+    </main>
+
+    <footer>© 2023 David Benshachar | All Rights Reserved</footer>
+  </body>
+</html>
