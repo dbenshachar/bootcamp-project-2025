@@ -36,9 +36,11 @@ const BlogArray: Blog[] = [
 ];
 
 function appendBlogs() {
+  // Set variable to the container in blogs.html where the blogs will be stored.
   const blogContainer = document.getElementById("blog-container");
 
   BlogArray.forEach((blog) => {
+    // Generate the HTML of the preview of each blog in the array of blogs we want to generate.
     const main = document.createElement("main");
 
     const hero = document.createElement("section");
@@ -53,7 +55,7 @@ function appendBlogs() {
     const slug = blog.slug;
     link.href = "blogs/" + slug + ".html";
     link.style.color = "black";
-
+    // Create title and have it be the link to the blog page by giving a child with the href
     title.appendChild(link);
 
     const description = document.createElement("p");
@@ -63,11 +65,17 @@ function appendBlogs() {
     figure.classList.add("photo-squircle");
 
     const image = document.createElement("img");
+    // Set the height and width of image to not bloat the screen
     image.style.height = "140px";
     image.style.width = "auto";
     image.src = blog.image;
     image.alt = blog.imageAlt;
 
+    // Manipulate DOM by:
+    // >Appending image to the figure
+    // >Appending description to the square circle styleDiv
+    // >Appending the image, styleDiv, and title in the hero style
+    // >Append the hero to the main section and and appending the final HTML document to the blogContainer
     figure.appendChild(image);
 
     styleDiv.appendChild(description);
