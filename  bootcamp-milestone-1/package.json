@@ -1,7 +1,7 @@
 {
   "name": "bootcamp-project-2025",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the start of your 2025 bootcamp project!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,9 +13,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/dbenshachar/bootcamp-project-2025/issues"
   },
-  "homepage": "https://github.com/dbenshachar/bootcamp-project-2025#readme"
+  "homepage": "https://github.com/dbenshachar/bootcamp-project-2025#readme",
+  "dependencies": {
+    "typescript": "^5.9.3"
+  }
 }
