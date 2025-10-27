@@ -1,9 +1,10 @@
 import style from "./hero.module.css";
 
 export interface SquareCircleProps {
-  header: string;
-  content: string;
+  header?: string;
+  content?: string;
   bullets?: string[];
+  imagePath?: string;
 }
 
 export function SquareCircle(props: SquareCircleProps) {
@@ -21,6 +22,15 @@ export function SquareCircle(props: SquareCircleProps) {
           ))}
         </ul>
       </main>
+      <div className={style.image_hero}>
+        <figure className={style.figure}>
+          <img
+            src={props.imagePath}
+            className={style.img}
+            alt={props.header}
+          ></img>
+        </figure>
+      </div>
     </div>
   );
 }

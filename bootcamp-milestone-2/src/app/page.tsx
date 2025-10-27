@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Navbar from "@/components/navbar";
+import path from "path";
 import { SquareCircle, SquareCircleProps } from "@/components/hero";
 
 const aboutMeProps: SquareCircleProps = {
@@ -11,6 +11,7 @@ const aboutMeProps: SquareCircleProps = {
     "Playing volleyball with my friends",
     "Drinking boba tea",
   ],
+  imagePath: "/profile.jpeg",
 };
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
             header={aboutMeProps.header}
             content={aboutMeProps.content}
             bullets={aboutMeProps.bullets}
+            imagePath={aboutMeProps.imagePath}
           ></SquareCircle>
         </main>
       </body>
