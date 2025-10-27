@@ -7,9 +7,9 @@ const aboutMeProps: SquareCircleProps = {
   content:
     "I am a first year CS student @ Cal Poly SLO excited to learn about AI and full stack development.\n\nMy hobbies include:",
   bullets: [
-    "Learning frontend development (I'm still learning)",
-    "Playing volleyball with my friends",
-    "Drinking boba tea",
+    "Learning frontend development (I'm still learning).",
+    "Playing volleyball with my friends.",
+    "Drinking boba tea.",
   ],
   imagePath: "/profile.jpeg",
 };
@@ -18,6 +18,7 @@ export default function Home() {
   return (
     <html lang="en">
       <body>
+        <title>Home</title>
         <Navbar></Navbar>
         <main>
           <SquareCircle
