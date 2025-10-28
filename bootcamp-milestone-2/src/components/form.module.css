@@ -7,17 +7,16 @@
 }
 
 .container {
-  margin-top: 5vh;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  height: 100vh;
   padding: 1rem;
 }
 
 .form {
-  max-width: 60vw;
+  max-width: 1000px;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -26,7 +25,7 @@
 
 .submit_button {
   height: 45px;
-  width: 20vw;
+  width: 250px;
   border-radius: 45px;
   background-color: rgb(62, 94, 255);
   transition: background-color 0.2s ease;
@@ -39,7 +38,6 @@
 
 .input_box {
   text-align: left;
-  width: 60vw;
   border: 1px solid black;
   border-radius: 16px;
   padding: 0.75rem 1rem;

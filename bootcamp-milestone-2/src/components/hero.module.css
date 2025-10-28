@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  max-width: 90vh;
+  max-width: 1200px;
   margin: 60px auto;
   padding: 0 40px;
 }
@@ -16,6 +16,7 @@
 }
 
 .square_circle {
+  width: 800px;
   background: #f5f5f5;
   border-radius: 45px;
   padding: 30px 40px;
@@ -54,7 +55,7 @@
 
 .img {
   border-radius: 12px;
-  max-width: 20vh;
-  height: auto;
+  max-width: 300px;
+  max-width: 200px;
   display: block;
 }

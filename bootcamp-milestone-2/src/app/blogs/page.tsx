@@ -1,4 +1,6 @@
 import Navbar from "@/components/navbar";
+import BlogArray from "../blogData";
+import { SquareCircle } from "@/components/hero";
 
 export default function Blogs() {
   return (
@@ -6,6 +8,13 @@ export default function Blogs() {
       <body>
         <title>Blogs</title>
         <Navbar></Navbar>
+        {BlogArray.map((blog, index) => (
+          <SquareCircle
+            header={blog.title}
+            content={blog.description}
+            imagePath={blog.image}
+          ></SquareCircle>
+        ))}
       </body>
     </html>
   );
