@@ -7,6 +7,7 @@ export interface SquareCircleProps {
   imagePath?: string;
 }
 
+/**Square circle is a UI element that has text with a square-circle border next to an image with a similar border. */
 export function SquareCircle(props: SquareCircleProps) {
   return (
     <div className={style.hero}>
@@ -14,6 +15,7 @@ export function SquareCircle(props: SquareCircleProps) {
         <h1 className={style.header}>{props.header}</h1>
         <p className={style.paragraph}>{props.content}</p>
 
+        {/**For each bullet point in the props, add the bullet point to the square-circle */}
         <ul className={style.ul}>
           {props.bullets?.map((content, index) => (
             <li key={index} className={style.li}>

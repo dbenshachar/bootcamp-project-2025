@@ -1,12 +1,11 @@
 import style from "./navbar.module.css";
 import Link from "next/link";
 
+/**Navbar can be used to put links to pages. */
 export default function Navbar() {
   return (
-    // Link styles to CSS for navbar
     <header className={style.header}>
       <nav className={style.nav}>
-        {/**Link to other sections of the website */}
         <Link href="/" className={style.link}>
           Home
         </Link>

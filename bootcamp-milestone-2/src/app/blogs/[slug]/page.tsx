@@ -9,6 +9,7 @@ export interface blogPageProps {
   image: string;
 }
 
+/**Generates the blog article to allow dynamic articles with slugs. */
 export default async function BlogPage({
   params,
 }: {

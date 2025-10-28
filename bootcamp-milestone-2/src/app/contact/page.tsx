@@ -9,6 +9,7 @@ const props: FormProps = {
   ],
 };
 
+/**Allows user to enter information and submit it to website. */
 export default function Contact() {
   return (
     <html lang="en">

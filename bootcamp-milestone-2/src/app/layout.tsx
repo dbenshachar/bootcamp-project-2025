@@ -22,5 +22,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  {
+    /**I designed each page to make their own HTML and body so the RootLayout directly displays what is in each page.*/
+  }
   return <>{children}</>;
 }

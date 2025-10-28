@@ -5,6 +5,7 @@ const props: PDFProps = {
   resumePath: "david_benshachar_resume.pdf",
 };
 
+/**Displays resume in full screen view with navbar. */
 export default function Resume() {
   return (
     <html lang="en">

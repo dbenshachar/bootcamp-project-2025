@@ -8,6 +8,7 @@ export interface FormProps {
   questions: string[];
 }
 
+/**UI element for users to enter information into questions.*/
 export function Form(props: FormProps) {
   const [formData, setFormData] = useState<{ [key: string]: string }>({
     name: "",
@@ -15,6 +16,7 @@ export function Form(props: FormProps) {
     message: "",
   });
 
+  /**Allows user entries to the forms to remain. */
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     event.preventDefault();
     setFormData((prevFormData) => ({
@@ -23,6 +25,7 @@ export function Form(props: FormProps) {
     }));
   };
 
+  /**Removes all information from form on submit press. */
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     setFormData({ name: "", email: "", message: "" });
@@ -33,6 +36,7 @@ export function Form(props: FormProps) {
       <form onSubmit={handleSubmit} className={style.form}>
         <h2 className={style.header}>{props.header}</h2>
 
+        {/**Creates a text area for each question in props. */}
         {props.questions.map((question) => (
           <div key={question}>
             <textarea

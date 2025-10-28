@@ -14,6 +14,7 @@ const aboutMeProps: SquareCircleProps = {
   imagePath: "/profile.jpeg",
 };
 
+/**Home page. */
 export default function Home() {
   return (
     <html lang="en">
