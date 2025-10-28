@@ -28,9 +28,5 @@ body {
 html,
 body,
 main {
-  /* Set the initial height of the root elements */
   height: 100%;
-  /* Optional: Remove default margin/padding for better control */
-  margin: 0;
-  padding: 0;
 }
