@@ -15,7 +15,7 @@ export function Form(props: FormProps) {
     message: "",
   });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     event.preventDefault();
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -35,8 +35,7 @@ export function Form(props: FormProps) {
 
         {props.questions.map((question) => (
           <div key={question}>
-            <input
-              type="text"
+            <textarea
               name={question}
               value={formData[question] || ""}
               onChange={handleChange}
