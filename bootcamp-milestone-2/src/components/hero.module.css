@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  max-width: 1200px;
+  max-width: 90vh;
   margin: 60px auto;
   padding: 0 40px;
 }
@@ -54,7 +54,7 @@
 
 .img {
   border-radius: 12px;
-  max-width: 200px;
+  max-width: 20vh;
   height: auto;
   display: block;
 }
