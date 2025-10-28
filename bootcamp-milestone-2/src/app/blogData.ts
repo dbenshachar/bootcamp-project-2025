@@ -25,7 +25,7 @@ const BlogArray: Blog[] = [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1920px-Python-logo-notext.svg.png",
     imageAlt: "The logo for python",
     slug: "python-tutorial",
-    content: "",
+    content: "Write\nprint('Hello world!)'\n You are now a master of Python..",
   },
 
   {
@@ -36,8 +36,13 @@ const BlogArray: Blog[] = [
       "https://media.istockphoto.com/id/1305166860/vector/volleyball-sports-glyph-icon.jpg?s=612x612&w=0&k=20&c=t67-m41qaiSnaOuWjLtkytN1RAqAiiXc9QmLu68fTS8=",
     imageAlt: "A logo for a volleyball",
     slug: "why-i-love-volleyball",
-    content: "",
+    content:
+      "Volleyball is a really fun team sport that is really fun to play here at Cal Poly.",
   },
 ];
+
+export function findBlog(slug: string) {
+  return BlogArray.find((blog) => blog.slug === slug);
+}
 
 export default BlogArray;

@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar";
 import BlogArray from "../blogData";
 import { SquareCircle } from "@/components/hero";
+import Link from "next/link";
 
 export default function Blogs() {
   return (
@@ -9,11 +10,13 @@ export default function Blogs() {
         <title>Blogs</title>
         <Navbar></Navbar>
         {BlogArray.map((blog, index) => (
-          <SquareCircle
-            header={blog.title}
-            content={blog.description}
-            imagePath={blog.image}
-          ></SquareCircle>
+          <Link href={`/blogs/${blog.slug}`} key={index}>
+            <SquareCircle
+              header={blog.title}
+              content={blog.description}
+              imagePath={blog.image}
+            ></SquareCircle>
+          </Link>
         ))}
       </body>
     </html>
