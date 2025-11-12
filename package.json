@@ -1,23 +1,26 @@
 {
-  "name": "bootcamp-project-2025",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "h4i-bootcamp",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cd bootcamp-milestone-2 && npm run dev"
-
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dbenshachar/bootcamp-project-2025.git"
+  "dependencies": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "next": "16.0.1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/dbenshachar/bootcamp-project-2025/issues"
-  },
-  "homepage": "https://github.com/dbenshachar/bootcamp-project-2025#readme"
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.1"
+  }
 }
