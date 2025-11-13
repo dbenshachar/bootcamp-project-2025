@@ -16,19 +16,16 @@ export default async function BlogPage({
   params: { slug: string };
 }) {
   const { slug } = await params;
-  const props = findBlog(slug);
-  if (props === undefined) {
-    return;
-  }
-
-  return (
-    <div>
-      <Navbar></Navbar>
-      <SquareCircle
-        header={props.description}
-        content={props.content}
-        imagePath={props.image}
-      ></SquareCircle>
-    </div>
-  );
+  return findBlog(slug).then((props) => {
+    return (
+      <div>
+        <Navbar></Navbar>
+        <SquareCircle
+          header={props?.description ?? ""}
+          content={props?.content ?? ""}
+          imagePath={props?.image ?? ""}
+        ></SquareCircle>
+      </div>
+    );
+  });
 }

@@ -1,48 +1,27 @@
 // Same code as milestone 1 but without function call
 
-type CalendarDate = {
-  year: number;
-  month: number;
-  day: number;
-};
+import connectDB from "@/database/db";
+import BlogModel, { BlogDoc } from "@/database/models/blogEntry";
+import mongoose from "mongoose";
+import { BlogSchema } from "@/database/models/blogEntry";
 
-type Blog = {
-  title: string;
-  date: CalendarDate;
-  description: string;
-  image: string;
-  imageAlt: string;
-  slug: string;
-  content: string;
-};
-
-const BlogArray: Blog[] = [
-  {
-    title: "Python Tutorial",
-    date: { year: 2025, month: 10, day: 13 },
-    description: "Tutorial for learning Python!",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1920px-Python-logo-notext.svg.png",
-    imageAlt: "The logo for python",
-    slug: "python-tutorial",
-    content: "Write\nprint('Hello world!)'\n You are now a master of Python..",
-  },
-
-  {
-    title: "Why I love Volleyball",
-    date: { year: 2025, month: 10, day: 13 },
-    description: "Explaining my love for the sport",
-    image:
-      "https://media.istockphoto.com/id/1305166860/vector/volleyball-sports-glyph-icon.jpg?s=612x612&w=0&k=20&c=t67-m41qaiSnaOuWjLtkytN1RAqAiiXc9QmLu68fTS8=",
-    imageAlt: "A logo for a volleyball",
-    slug: "why-i-love-volleyball",
-    content:
-      "Volleyball is a really fun team sport that is really fun to play here at Cal Poly.",
-  },
-];
-
-export function findBlog(slug: string) {
-  return BlogArray.find((blog) => blog.slug === slug);
+export async function getBlogs() {
+  try {
+    await connectDB(); // function from db.ts before
+    // query for all blogs and sort by date
+    const res = await BlogModel.find().lean();
+    return res;
+  } catch (err: any) {
+    return undefined;
+  }
 }
 
-export default BlogArray;
+export function findBlog(slug: string) {
+  return getBlogs().then((blogArray) => {
+    if (blogArray === undefined) {
+      return undefined;
+    }
+
+    return blogArray.find((blog) => blog.slug === slug);
+  });
+}
