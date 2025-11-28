@@ -1,5 +1,6 @@
 // /database/models/Blog.ts
 import { Schema, model, models } from "mongoose";
+import { CommentDoc, CommentSchema } from "./commentEntry";
 
 export interface DateStruct {
   year: number;
@@ -15,6 +16,7 @@ export interface BlogDoc {
   imageAlt: string;
   slug: string;
   content: string;
+  comments: CommentDoc[];
 }
 
 export const BlogSchema = new Schema<BlogDoc>({
@@ -29,6 +31,7 @@ export const BlogSchema = new Schema<BlogDoc>({
   imageAlt: String,
   slug: { type: String, required: true, unique: true },
   content: String,
+  comments: { type: [CommentSchema], default: [] },
 });
 
 const BlogModel =

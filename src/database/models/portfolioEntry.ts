@@ -23,6 +23,6 @@ export const ProjectSchema = new Schema<ProjectDoc>({
 });
 
 const ProjectModel =
-  models.Blog ||
+  models.Project ||
   model<ProjectDoc>("Portfolio", ProjectSchema, "portfolioEntries");
 export default ProjectModel;
