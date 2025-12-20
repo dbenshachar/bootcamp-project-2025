@@ -1,5 +1,5 @@
 import Navbar from "@/components/navbar";
-import { findBlog } from "../../blogData";
+import { findBlogs } from "../../blogData";
 import { SquareCircle } from "@/components/hero";
 
 export interface blogPageProps {
@@ -16,7 +16,7 @@ export default async function BlogPage({
   params: { slug: string };
 }) {
   const { slug } = await params;
-  return findBlog(slug).then((props) => {
+  return findBlogs(slug).then((props) => {
     return (
       <div>
         <Navbar></Navbar>

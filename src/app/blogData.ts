@@ -4,24 +4,37 @@ import connectDB from "@/database/db";
 import BlogModel, { BlogDoc } from "@/database/models/blogEntry";
 import mongoose from "mongoose";
 import { BlogSchema } from "@/database/models/blogEntry";
+import CommentModel from "@/database/models/commentEntry";
 
-export async function getBlogs() {
+type SlugModel = { slug: string };
+
+async function getModel<T>(model: mongoose.Model<T>) {
   try {
-    await connectDB(); // function from db.ts before
-    // query for all blogs and sort by date
-    const res = await BlogModel.find().lean();
-    return res;
-  } catch (err: any) {
+    await connectDB();
+    return (await model.find().lean()) as T[];
+  } catch {
     return undefined;
   }
 }
 
-export function findBlog(slug: string) {
-  return getBlogs().then((blogArray) => {
-    if (blogArray === undefined) {
-      return undefined;
-    }
-
-    return blogArray.find((blog) => blog.slug === slug);
-  });
+async function findBySlug<T extends SlugModel>(
+  modelPromise: Promise<T[] | undefined>,
+  slug: string
+) {
+  const modelArray = await modelPromise;
+  return modelArray?.find((doc) => doc.slug === slug);
 }
+
+async function filterBySlug<T extends SlugModel>(
+  modelPromise: Promise<T[] | undefined>,
+  slug: string
+) {
+  const modelArray = await modelPromise;
+  return modelArray?.filter((doc) => doc.slug === slug);
+}
+
+export const getBlogs = () => getModel(BlogModel);
+export const getComments = () => getModel(CommentModel);
+
+export const findBlogs = (slug: string) => findBySlug(getBlogs(), slug);
+export const findComments = (slug: string) => filterBySlug(getComments(), slug);
