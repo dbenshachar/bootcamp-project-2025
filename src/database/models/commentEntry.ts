@@ -5,6 +5,7 @@ export interface CommentDoc {
   content: string;
   date: DateStruct;
   user: string;
+  slug: string;
 }
 
 export const CommentSchema = new Schema<CommentDoc>({
@@ -15,6 +16,7 @@ export const CommentSchema = new Schema<CommentDoc>({
   },
   user: String,
   content: String,
+  slug: String,
 });
 
 const CommentModel =

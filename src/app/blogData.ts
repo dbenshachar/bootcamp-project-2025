@@ -4,7 +4,7 @@ import connectDB from "@/database/db";
 import BlogModel, { BlogDoc } from "@/database/models/blogEntry";
 import mongoose from "mongoose";
 import { BlogSchema } from "@/database/models/blogEntry";
-import CommentModel from "@/database/models/commentEntry";
+import CommentModel, { CommentDoc } from "@/database/models/commentEntry";
 
 type SlugModel = { slug: string };
 
@@ -38,3 +38,14 @@ export const getComments = () => getModel(CommentModel);
 
 export const findBlogs = (slug: string) => findBySlug(getBlogs(), slug);
 export const findComments = (slug: string) => filterBySlug(getComments(), slug);
+
+export async function addComment(commentData: CommentDoc) {
+  try {
+    await connectDB();
+    const newComment = new CommentModel(commentData);
+    const savedComment = await newComment.save();
+    return savedComment;
+  } catch (error) {
+    return undefined;
+  }
+}
