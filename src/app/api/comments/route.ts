@@ -1,15 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { findComments, findBlogs, addComment } from "../../blogData";
-import { DateStruct } from "../../../database/models/blogEntry";
-
-const getDate = (): DateStruct => {
-  const date = new Date();
-  return {
-    year: date.getFullYear(),
-    month: date.getMonth() + 1,
-    day: date.getDate(),
-  };
-};
+import { DateStruct, getDate } from "../../../database/models/blogEntry";
 
 export async function GET(request: NextRequest) {
   const slug = request.nextUrl.searchParams.get("slug");

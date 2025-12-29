@@ -1,12 +1,5 @@
+import { CommentDoc } from "@/types/types";
 import { Schema, model, models } from "mongoose";
-import { DateStruct } from "./blogEntry";
-
-export interface CommentDoc {
-  content: string;
-  date: DateStruct;
-  user: string;
-  slug: string;
-}
 
 export const CommentSchema = new Schema<CommentDoc>({
   date: {

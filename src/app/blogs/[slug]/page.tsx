@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar";
 import { findBlogs } from "../../blogData";
 import { SquareCircle } from "@/components/hero";
+import Comments from "@/components/comments";
 
 export interface blogPageProps {
   title: string;
@@ -25,6 +26,7 @@ export default async function BlogPage({
           content={props?.content ?? ""}
           imagePath={props?.image ?? ""}
         ></SquareCircle>
+        <Comments slug={slug}></Comments>
       </div>
     );
   });

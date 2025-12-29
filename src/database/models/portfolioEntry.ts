@@ -1,15 +1,5 @@
+import { ProjectDoc } from "@/types/types";
 import { Schema, model, models } from "mongoose";
-
-export interface ProjectDoc {
-  title: string;
-  link: string;
-  technologies: [string];
-  date_range: {
-    start: string;
-    end: string;
-  };
-  bullets: [string];
-}
 
 export const ProjectSchema = new Schema<ProjectDoc>({
   title: { type: String, required: true, trim: true },

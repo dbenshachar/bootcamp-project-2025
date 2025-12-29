@@ -1,23 +1,16 @@
 // /database/models/Blog.ts
 import { Schema, model, models } from "mongoose";
-import { CommentDoc, CommentSchema } from "./commentEntry";
+import { CommentSchema } from "./commentEntry";
+import { BlogDoc, DateStruct } from "@/types/types";
 
-export interface DateStruct {
-  year: number;
-  month: number;
-  day: number;
-}
-
-export interface BlogDoc {
-  title: string;
-  date: DateStruct;
-  description: string;
-  image: string;
-  imageAlt: string;
-  slug: string;
-  content: string;
-  comments: CommentDoc[];
-}
+export const getDate = (): DateStruct => {
+  const date = new Date();
+  return {
+    year: date.getFullYear(),
+    month: date.getMonth() + 1,
+    day: date.getDate(),
+  };
+};
 
 export const BlogSchema = new Schema<BlogDoc>({
   title: { type: String, required: true },
