@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 import style from "./form.module.css";
+import emailjs from "@emailjs/browser";
+
+const service_id: string = process.env.EMAIL_SERVICE_ID as string;
+const template_id: string = process.env.EMAIL_TEMPLATE_ID as string;
 
 export interface FormProps {
   header: string;
@@ -15,6 +19,7 @@ export function Form(props: FormProps) {
     email: "",
     message: "",
   });
+  const [message, setMessage] = useState("Submit");
 
   /**Allows user entries to the forms to remain. */
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -26,9 +31,23 @@ export function Form(props: FormProps) {
   };
 
   /**Removes all information from form on submit press. */
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      await emailjs.send(service_id, template_id, {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      });
+      setFormData({ name: "", email: "", message: "" });
+
+      setMessage("Success");
+    } catch (e: any) {
+      setMessage(e?.message ?? "Failed to send email");
+    } finally {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setMessage("Submit");
+    }
   };
 
   return (
@@ -50,7 +69,7 @@ export function Form(props: FormProps) {
         ))}
 
         <button type="submit" className={style.submit_button}>
-          Submit
+          {message}
         </button>
       </form>
     </div>
