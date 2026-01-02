@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./form.module.css";
 import emailjs from "@emailjs/browser";
 
-const service_id: string = process.env.EMAIL_SERVICE_ID as string;
-const template_id: string = process.env.EMAIL_TEMPLATE_ID as string;
+const service_id: string = process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID as string;
+const template_id: string = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID as string;
+const public_key: string = process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY as string;
 
 export interface FormProps {
   header: string;
@@ -14,6 +15,9 @@ export interface FormProps {
 
 /**UI element for users to enter information into questions.*/
 export function Form(props: FormProps) {
+  useEffect(() => {
+    emailjs.init({ publicKey: public_key });
+  }, []);
   const [formData, setFormData] = useState<{ [key: string]: string }>({
     name: "",
     email: "",
@@ -35,9 +39,11 @@ export function Form(props: FormProps) {
     event.preventDefault();
     try {
       await emailjs.send(service_id, template_id, {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
+        name: formData["name"],
+        email: formData["email"],
+        message: formData["message"],
+        title: "Contact us",
+        time: new Date().toISOString(),
       });
       setFormData({ name: "", email: "", message: "" });
 
