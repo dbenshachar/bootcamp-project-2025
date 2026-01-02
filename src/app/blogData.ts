@@ -1,10 +1,10 @@
 // Same code as milestone 1 but without function call
 
 import connectDB from "@/database/db";
-import BlogModel, { BlogDoc } from "@/database/models/blogEntry";
+import BlogModel from "@/database/models/blogEntry";
+import CommentModel from "@/database/models/commentEntry";
+import { CommentDoc } from "@/types/types";
 import mongoose from "mongoose";
-import { BlogSchema } from "@/database/models/blogEntry";
-import CommentModel, { CommentDoc } from "@/database/models/commentEntry";
 
 type SlugModel = { slug: string };
 
